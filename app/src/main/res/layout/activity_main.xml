@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.example.yoginews.viewmodels.NewsViewModel" />
+    </data>
+
+    <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".views.MainActivity">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/news_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adapter="@{viewmodel.newsAdapter}"
+            android:background="@color/color_background"
+            android:orientation="vertical"
+            android:visibility="@{viewmodel.contentVisible}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="@{viewmodel.loading}">
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                app:indicatorColor="@color/colorGreen" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/no_internet_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@{viewmodel.errorMessage}"
+            android:textSize="@dimen/text_size_message"
+            android:visibility="@{viewmodel.errorVisible}" />
+    </LinearLayout>
+</layout>
