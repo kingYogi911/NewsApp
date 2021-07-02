@@ -23,11 +23,11 @@ class NewsAdapter(private val newsList: ArrayList<NewsModel>) :
         val news = newsList[position]
         holder.binding.apply {
             this.item = news
-        }
-        holder.itemView.setOnClickListener {
-            Intent(context, WebViewActivity::class.java).let {
-                it.putExtra(WEB_URL, news.webLink)
-                context.startActivity(it)
+            this.card.setOnClickListener {
+                Intent(context, WebViewActivity::class.java).let {
+                    it.putExtra(WEB_URL, news.webLink)
+                    context.startActivity(it)
+                }
             }
         }
     }

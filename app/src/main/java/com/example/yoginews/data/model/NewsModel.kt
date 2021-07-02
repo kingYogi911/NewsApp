@@ -1,5 +1,7 @@
 package com.example.yoginews.data.model
 
+import com.google.gson.annotations.SerializedName
+
 class NewsModel(
     @SerializedName("title")
     val title: String?,

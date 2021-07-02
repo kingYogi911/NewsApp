@@ -11,7 +11,7 @@ import com.example.yoginews.utils.NewsRepository
 import com.example.yoginews.views.NewsAdapter
 import kotlinx.coroutines.launch
 
-class NewsViewModel(val repository: NewsRepository) : ViewModel() {
+class NewsViewModel(private val repository: NewsRepository) : ViewModel() {
     private val newsList = MutableLiveData<ArrayList<NewsModel>>()
     private val _adapter = MutableLiveData<RecyclerView.Adapter<*>>()
     private var chunkCount = 0
