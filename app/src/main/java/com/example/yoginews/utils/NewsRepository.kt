@@ -3,18 +3,26 @@ package com.example.yoginews.utils
 import android.util.Log
 import com.example.yoginews.data.model.NewsModel
 import com.example.yoginews.utils.StaticVariables.Companion.API_KEY
+import java.text.SimpleDateFormat
+import java.util.*
 
 class NewsRepository(private val source: NewsDataSource) {
-    suspend fun getNextNewsChunk(): List<NewsModel>? {
+    suspend fun getNextNewsChunk(query: String = "tesla"): List<NewsModel>? {
         return try {
+            val date =
+                SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH).format(Calendar.getInstance().let {
+                    it.add(Calendar.DAY_OF_WEEK, -1)
+                    it.time
+                })
             source.getNews(
-                q="tesla",
-                from="2021-06-03",
-                sortBy="publishedAt",
-                apiKey=API_KEY
+                q = query,
+                from = date,
+                sortBy = "publishedAt",
+                apiKey = API_KEY
             ).let { response ->
-                Log.d(TAG, "response.isSuccessful${response.isSuccessful}")
+                Log.d(TAG, "response.isSuccessful:${response.isSuccessful}")
                 if (response.isSuccessful) {
+                    Log.d(TAG, response.body()!!.status)
                     if (response.body()!!.status == "ok") {
                         response.body()!!.articles
                     } else {

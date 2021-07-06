@@ -5,28 +5,61 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.net.ConnectivityManager
+import android.net.Network
+import android.os.Build
+import android.util.Log
 import androidx.lifecycle.LiveData
 
-class MyHelper(private val context: Context): LiveData<Boolean>() {
-    private val networkReceiver=object :BroadcastReceiver(){
+class MyHelper(private val context: Context) : LiveData<Boolean>() {
+    private val cm: ConnectivityManager =
+        context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    private val networkReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
-            postValue(isOnline())
+            val x = isOnline()
+            Log.d(TAG, "Network Status " + if (x) "Connected" else "Disconnected")
+            postValue(x)
         }
     }
+    private val networkCallBack = object : ConnectivityManager.NetworkCallback() {
+        override fun onAvailable(network: Network) {
+            Log.d(TAG, "Network Status Connected")
+            postValue(true)
+        }
+
+        override fun onLost(network: Network) {
+            Log.d(TAG, "Network Status Disconnected")
+            postValue(false)
+        }
+    }
+
     override fun onActive() {
         super.onActive()
-        context.registerReceiver(networkReceiver, IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION))
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
+            context.registerReceiver(
+                networkReceiver,
+                IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
+            )
+        } else {
+            cm.registerDefaultNetworkCallback(networkCallBack)
+        }
     }
 
     override fun onInactive() {
         super.onInactive()
-        context.unregisterReceiver(networkReceiver)
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
+            context.unregisterReceiver(networkReceiver)
+        } else {
+            cm.unregisterNetworkCallback(networkCallBack)
+        }
     }
+
     private fun isOnline(): Boolean {
-        val connMan =
-            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        return connMan.activeNetworkInfo.let {
+        return cm.activeNetworkInfo.let {
             it?.isConnectedOrConnecting == true
         }
+    }
+
+    companion object {
+        const val TAG = "MyHelper"
     }
 }

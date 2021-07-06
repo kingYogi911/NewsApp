@@ -15,30 +15,34 @@ import kotlinx.coroutines.launch
 class NewsViewModel(private val repository: NewsRepository) : ViewModel() {
     private val newsList = MutableLiveData<ArrayList<NewsModel>>()
     private val _adapter = MutableLiveData<NewsAdapter>()
+    private var lastNetStatus = false
+    private var pendingRequest = false
     var isConnected = MutableLiveData<Boolean>(false)
     val newsAdapter: LiveData<NewsAdapter> get() = _adapter
     val controller = PECModel()
-    private var lastNetStatus = false
 
     init {
         Log.d(TAG, "INIT")
         isConnected.observeForever {
-            it?.let {
-                if (lastNetStatus != it) {
-                    lastNetStatus = it
-                    if (it) {
-                        newsList.value = ArrayList()
-                        _adapter.value = NewsAdapter(newsList.value!!)
-                        getNextNewsChunk()
-                    } else {
-                        controller.apply {
-                            progress.value = View.GONE
-                            msg.value = "No Internet!"
-                            error.value = View.VISIBLE
-                            content.value = View.GONE
-                        }
-                    }
-                }
+            if (lastNetStatus != it) {
+                lastNetStatus = it
+            }
+            if (it && pendingRequest == true) {
+                getNextNewsChunk()
+            }
+        }
+        newsList.value = ArrayList()
+        _adapter.value = NewsAdapter(newsList.value!!)
+        if (lastNetStatus) {
+            getNextNewsChunk()
+            pendingRequest = false
+        } else {
+            pendingRequest = true
+            controller.apply {
+                progress.value = View.GONE
+                msg.value = "No Internet!"
+                error.value = View.VISIBLE
+                content.value = View.GONE
             }
         }
     }
@@ -53,9 +57,13 @@ class NewsViewModel(private val repository: NewsRepository) : ViewModel() {
                 repository.getNextNewsChunk().let { list ->
                     controller.progress.value = View.GONE
                     if (list != null) {
+                        Log.d(TAG,"List items=${list.size}")
                         newsList.value!!.addAll(list)
                         _adapter.value?.notifyDataSetChanged()
-                        controller.content.value = View.VISIBLE
+                        controller.apply {
+                            msg.value = "No More Data"
+                            content.value = View.VISIBLE
+                        }
                     } else {
                         controller.apply {
                             msg.value = "Something Went Wrong"

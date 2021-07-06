@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.yoginews.utils.NewsDataSource
 import com.example.yoginews.utils.NewsRepository
 import com.example.yoginews.utils.StaticVariables
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.InvalidClassException
@@ -22,9 +24,13 @@ class NewsViewModelFactory(private val repos: NewsRepository) : ViewModelProvide
         private var instance: NewsViewModelFactory? = null
         fun getNewInstance(): NewsViewModelFactory {
             return if (instance == null) {
+                val interceptor =
+                    HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+                val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
                 Retrofit.Builder()
                     .baseUrl(StaticVariables.BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
+                    .client(client)
                     .build()
                     .create(NewsDataSource::class.java).let { dataSource ->
                         NewsViewModelFactory(NewsRepository(dataSource)).also { factory ->
