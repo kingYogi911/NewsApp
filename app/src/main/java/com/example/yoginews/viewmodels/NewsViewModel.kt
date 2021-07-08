@@ -47,17 +47,18 @@ class NewsViewModel(private val repository: NewsRepository) : ViewModel() {
         }
     }
 
-    private fun getNextNewsChunk() {
+    private fun getNextNewsChunk(query:String="Yogi") {
         if (isConnected.value == true) {
             viewModelScope.launch {
                 controller.apply {
                     content.value = View.GONE
                     progress.value = View.VISIBLE
                 }
-                repository.getNextNewsChunk().let { list ->
+                repository.getNextNewsChunk(query).let { list ->
                     controller.progress.value = View.GONE
                     if (list != null) {
                         Log.d(TAG,"List items=${list.size}")
+                        newsList.value!!.clear()
                         newsList.value!!.addAll(list)
                         _adapter.value?.notifyDataSetChanged()
                         controller.apply {
@@ -73,6 +74,9 @@ class NewsViewModel(private val repository: NewsRepository) : ViewModel() {
                 }
             }
         }
+    }
+    fun search(query:String){
+        getNextNewsChunk(query)
     }
 
     companion object {

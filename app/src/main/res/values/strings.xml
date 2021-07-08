@@ -2,4 +2,5 @@
     <string name="app_name">Yogi News</string>
     <string name="no_internet">No Internet!!</string>
     <string name="image_icon">image_icon</string>
+    <string name="search">Search</string>
 </resources>

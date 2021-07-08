@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class NewsRepository(private val source: NewsDataSource) {
-    suspend fun getNextNewsChunk(query: String = "tesla"): List<NewsModel>? {
+    suspend fun getNextNewsChunk(query: String = "yogi"): List<NewsModel>? {
         return try {
             val date =
                 SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH).format(Calendar.getInstance().let {

@@ -1,27 +1,28 @@
 package com.example.yoginews.views
 
-import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.widget.TextView
+import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.yoginews.R
 import com.example.yoginews.databinding.ActivityMainBinding
 import com.example.yoginews.utils.MyHelper
-import com.example.yoginews.utils.NewsDataSource
-import com.example.yoginews.utils.StaticVariables.Companion.BASE_URL
 import com.example.yoginews.viewmodels.NewsViewModel
 import com.example.yoginews.viewmodels.NewsViewModelFactory
-import com.google.gson.Gson
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
+    lateinit var viewModel: NewsViewModel
+    lateinit var toolbar: Toolbar
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val viewModel = NewsViewModelFactory.getNewInstance().let { factory ->
+        viewModel = NewsViewModelFactory.getNewInstance().let { factory ->
             ViewModelProvider(this, factory).get(NewsViewModel::class.java)
         }
 
@@ -30,11 +31,44 @@ class MainActivity : AppCompatActivity() {
             this.lifecycleOwner = this@MainActivity
         }.also {
             setContentView(it.root)
+            toolbar = it.toolbarLayout as Toolbar
             setSupportActionBar(it.toolbarLayout as Toolbar)
             supportActionBar?.setDisplayShowTitleEnabled(false)
         }
         MyHelper(this).observe(this, Observer {
             viewModel.isConnected.value = it ?: false
         })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        menu.findItem(R.id.action_search).apply {
+            val title = toolbar.findViewById<TextView>(R.id.toolbar_title)
+            setOnActionExpandListener(object : MenuItem.OnActionExpandListener {
+                override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
+                    title.visibility = View.GONE
+                    return true
+                }
+
+                override fun onMenuItemActionCollapse(item: MenuItem?): Boolean {
+                    title.visibility = View.VISIBLE
+                    return true
+                }
+            })
+            (actionView as SearchView)
+                .also {
+                    it.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                        override fun onQueryTextSubmit(query: String?): Boolean {
+                            query?.let { viewModel.search(it) }
+                            return true
+                        }
+
+                        override fun onQueryTextChange(newText: String?): Boolean {
+                            return true
+                        }
+                    })
+                }
+        }
+        return true
     }
 }

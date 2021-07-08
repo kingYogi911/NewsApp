@@ -41,33 +41,26 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40bbade4-44d5-43a2-aa3d-ec6f6f84bd1b" name="Default Changelist" comment="Network Status Check, App Icon Added">
+    <list default="true" id="40bbade4-44d5-43a2-aa3d-ec6f6f84bd1b" name="Default Changelist" comment="Network Status Check Bug Resolved">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_okhttp_3_14_9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okio_okio_1_17_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/Yogi_News.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/Yogi_News.app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/yoginews/utils/MyHelper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yoginews/utils/MyHelper.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/yoginews/utils/NewsRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yoginews/utils/NewsRepository.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/yoginews/viewmodels/NewsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yoginews/viewmodels/NewsViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/yoginews/viewmodels/NewsViewModelFactory.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yoginews/viewmodels/NewsViewModelFactory.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/yoginews/views/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yoginews/views/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/actin_bar_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/actin_bar_layout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[192.168.0.100:5555]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[192.168.0.103:5555]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -78,8 +71,8 @@
       <list>
         <option value="valueResourceFile" />
         <option value="layoutResourceFile" />
-        <option value="resourceFile" />
         <option value="Kotlin Class" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -207,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625316259130</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Network Status Check Bug Resolved">
+      <created>1625601601880</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1625601601881</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -225,17 +225,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First Commit" />
     <MESSAGE value="Network Status Check, App Icon Added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Network Status Check, App Icon Added" />
+    <MESSAGE value="Network Status Check Bug Resolved" />
+    <option name="LAST_COMMIT_MESSAGE" value="Network Status Check Bug Resolved" />
   </component>
   <component name="WindowStateProjectService">
     <state x="158" y="206" key="#PSD" timestamp="1625242332091">
       <screen x="0" y="0" width="1280" height="920" />
     </state>
     <state x="158" y="206" key="#PSD/0.0.1280.920@0.0.1280.920" timestamp="1625242332091" />
-    <state x="432" y="176" key="#com.intellij.ide.util.MemberChooser" timestamp="1625308556379">
+    <state x="432" y="176" key="#com.intellij.ide.util.MemberChooser" timestamp="1625760465169">
       <screen x="0" y="0" width="1280" height="920" />
     </state>
-    <state x="432" y="176" key="#com.intellij.ide.util.MemberChooser/0.0.1280.920@0.0.1280.920" timestamp="1625308556379" />
+    <state x="432" y="176" key="#com.intellij.ide.util.MemberChooser/0.0.1280.920@0.0.1280.920" timestamp="1625760465169" />
     <state x="200" y="385" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1625240824542">
       <screen x="0" y="0" width="1280" height="920" />
     </state>
@@ -248,10 +249,14 @@
       <screen x="0" y="0" width="1280" height="920" />
     </state>
     <state x="420" y="252" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog/0.0.1280.920@0.0.1280.920" timestamp="1625240837795" />
-    <state x="486" y="250" key="AndroidCreateXmlResourceDialog" timestamp="1625251432545">
+    <state x="221" y="215" key="AndroidCreateResourceDirectoryDialog" timestamp="1625678721128">
       <screen x="0" y="0" width="1280" height="920" />
     </state>
-    <state x="486" y="250" key="AndroidCreateXmlResourceDialog/0.0.1280.920@0.0.1280.920" timestamp="1625251432545" />
+    <state x="221" y="215" key="AndroidCreateResourceDirectoryDialog/0.0.1280.920@0.0.1280.920" timestamp="1625678721128" />
+    <state x="486" y="250" key="AndroidCreateXmlResourceDialog" timestamp="1625678947811">
+      <screen x="0" y="0" width="1280" height="920" />
+    </state>
+    <state x="486" y="250" key="AndroidCreateXmlResourceDialog/0.0.1280.920@0.0.1280.920" timestamp="1625678947811" />
     <state x="519" y="358" key="Github.ShareDialog" timestamp="1625265838166">
       <screen x="0" y="0" width="1280" height="920" />
     </state>
@@ -260,26 +265,30 @@
       <screen x="0" y="0" width="1280" height="920" />
     </state>
     <state x="341" y="157" key="Github.UntrackedFilesDialog/0.0.1280.920@0.0.1280.920" timestamp="1625265849114" />
-    <state width="1220" height="239" key="GridCell.Tab.0.bottom" timestamp="1625601470260">
+    <state width="1220" height="239" key="GridCell.Tab.0.bottom" timestamp="1625761215518">
       <screen x="0" y="0" width="1280" height="920" />
     </state>
-    <state width="1220" height="239" key="GridCell.Tab.0.bottom/0.0.1280.920@0.0.1280.920" timestamp="1625601470260" />
-    <state width="1220" height="239" key="GridCell.Tab.0.center" timestamp="1625601470259">
+    <state width="1220" height="239" key="GridCell.Tab.0.bottom/0.0.1280.920@0.0.1280.920" timestamp="1625761215518" />
+    <state width="1220" height="239" key="GridCell.Tab.0.center" timestamp="1625761215518">
       <screen x="0" y="0" width="1280" height="920" />
     </state>
-    <state width="1220" height="239" key="GridCell.Tab.0.center/0.0.1280.920@0.0.1280.920" timestamp="1625601470259" />
-    <state width="1220" height="239" key="GridCell.Tab.0.left" timestamp="1625601470259">
+    <state width="1220" height="239" key="GridCell.Tab.0.center/0.0.1280.920@0.0.1280.920" timestamp="1625761215518" />
+    <state width="1220" height="239" key="GridCell.Tab.0.left" timestamp="1625761215518">
       <screen x="0" y="0" width="1280" height="920" />
     </state>
-    <state width="1220" height="239" key="GridCell.Tab.0.left/0.0.1280.920@0.0.1280.920" timestamp="1625601470259" />
-    <state width="1220" height="239" key="GridCell.Tab.0.right" timestamp="1625601470259">
+    <state width="1220" height="239" key="GridCell.Tab.0.left/0.0.1280.920@0.0.1280.920" timestamp="1625761215518" />
+    <state width="1220" height="239" key="GridCell.Tab.0.right" timestamp="1625761215518">
       <screen x="0" y="0" width="1280" height="920" />
     </state>
-    <state width="1220" height="239" key="GridCell.Tab.0.right/0.0.1280.920@0.0.1280.920" timestamp="1625601470259" />
-    <state x="233" y="193" key="Vcs.Push.Dialog.v2" timestamp="1625316272800">
+    <state width="1220" height="239" key="GridCell.Tab.0.right/0.0.1280.920@0.0.1280.920" timestamp="1625761215518" />
+    <state x="233" y="193" key="Vcs.Push.Dialog.v2" timestamp="1625601609017">
       <screen x="0" y="0" width="1280" height="920" />
     </state>
-    <state x="233" y="193" key="Vcs.Push.Dialog.v2/0.0.1280.920@0.0.1280.920" timestamp="1625316272800" />
+    <state x="233" y="193" key="Vcs.Push.Dialog.v2/0.0.1280.920@0.0.1280.920" timestamp="1625601609017" />
+    <state x="375" y="147" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1625758008447">
+      <screen x="0" y="0" width="1280" height="920" />
+    </state>
+    <state x="375" y="147" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1280.920@0.0.1280.920" timestamp="1625758008447" />
     <state x="354" y="304" key="edit.logcat.filter.dialog.dimensions" timestamp="1625598044245">
       <screen x="0" y="0" width="1280" height="920" />
     </state>
@@ -296,9 +305,9 @@
       <screen x="0" y="0" width="1280" height="920" />
     </state>
     <state x="427" y="355" key="git4idea.ui.GitResetDialog/0.0.1280.920@0.0.1280.920" timestamp="1625253334985" />
-    <state x="303" y="199" width="672" height="678" key="search.everywhere.popup" timestamp="1625601195679">
+    <state x="303" y="199" width="672" height="678" key="search.everywhere.popup" timestamp="1625766143079">
       <screen x="0" y="0" width="1280" height="920" />
     </state>
-    <state x="303" y="199" width="672" height="678" key="search.everywhere.popup/0.0.1280.920@0.0.1280.920" timestamp="1625601195679" />
+    <state x="303" y="199" width="672" height="678" key="search.everywhere.popup/0.0.1280.920@0.0.1280.920" timestamp="1625766143079" />
   </component>
 </project>
