@@ -41,19 +41,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40bbade4-44d5-43a2-aa3d-ec6f6f84bd1b" name="Default Changelist" comment="Network Status Check Bug Resolved">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml" afterDir="false" />
+    <list default="true" id="40bbade4-44d5-43a2-aa3d-ec6f6f84bd1b" name="Default Changelist" comment="Search Option Added">
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/yoginews/utils/NewsRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yoginews/utils/NewsRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/yoginews/viewmodels/NewsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yoginews/viewmodels/NewsViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/yoginews/views/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/yoginews/views/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/actin_bar_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/actin_bar_layout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625601601881</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Search Option Added">
+      <created>1625767258066</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1625767258066</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -226,7 +226,8 @@
     <MESSAGE value="First Commit" />
     <MESSAGE value="Network Status Check, App Icon Added" />
     <MESSAGE value="Network Status Check Bug Resolved" />
-    <option name="LAST_COMMIT_MESSAGE" value="Network Status Check Bug Resolved" />
+    <MESSAGE value="Search Option Added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Search Option Added" />
   </component>
   <component name="WindowStateProjectService">
     <state x="158" y="206" key="#PSD" timestamp="1625242332091">
@@ -281,10 +282,10 @@
       <screen x="0" y="0" width="1280" height="920" />
     </state>
     <state width="1220" height="239" key="GridCell.Tab.0.right/0.0.1280.920@0.0.1280.920" timestamp="1625761215518" />
-    <state x="233" y="193" key="Vcs.Push.Dialog.v2" timestamp="1625601609017">
+    <state x="233" y="193" key="Vcs.Push.Dialog.v2" timestamp="1625767276302">
       <screen x="0" y="0" width="1280" height="920" />
     </state>
-    <state x="233" y="193" key="Vcs.Push.Dialog.v2/0.0.1280.920@0.0.1280.920" timestamp="1625601609017" />
+    <state x="233" y="193" key="Vcs.Push.Dialog.v2/0.0.1280.920@0.0.1280.920" timestamp="1625767276302" />
     <state x="375" y="147" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1625758008447">
       <screen x="0" y="0" width="1280" height="920" />
     </state>
