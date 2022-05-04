@@ -1,30 +1,27 @@
 package com.example.yoginews.views
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.example.yoginews.R
 import com.example.yoginews.databinding.ActivityMainBinding
 import com.example.yoginews.utils.MyHelper
 import com.example.yoginews.viewmodels.NewsViewModel
-import com.example.yoginews.viewmodels.NewsViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    lateinit var viewModel: NewsViewModel
+    val viewModel: NewsViewModel by viewModels()
     lateinit var toolbar: Toolbar
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        viewModel = NewsViewModelFactory.getNewInstance().let { factory ->
-            ViewModelProvider(this, factory).get(NewsViewModel::class.java)
-        }
 
         ActivityMainBinding.inflate(layoutInflater).apply {
             this.viewmodel = viewModel

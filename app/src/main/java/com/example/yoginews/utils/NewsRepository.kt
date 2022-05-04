@@ -5,8 +5,9 @@ import com.example.yoginews.data.model.NewsModel
 import com.example.yoginews.utils.StaticVariables.Companion.API_KEY
 import java.text.SimpleDateFormat
 import java.util.*
+import javax.inject.Inject
 
-class NewsRepository(private val source: NewsDataSource) {
+class NewsRepository @Inject constructor(private val source: NewsDataSource) {
     suspend fun getNextNewsChunk(query: String = "yogi"): List<NewsModel>? {
         return try {
             val date =

@@ -2,17 +2,20 @@ package com.example.yoginews.viewmodels
 
 import android.util.Log
 import android.view.View
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.yoginews.data.model.NewsModel
 import com.example.yoginews.data.model.PECModel
 import com.example.yoginews.utils.NewsRepository
 import com.example.yoginews.views.NewsAdapter
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class NewsViewModel(private val repository: NewsRepository) : ViewModel() {
+@HiltViewModel
+class NewsViewModel @Inject constructor(
+    private val savedStateHandle: SavedStateHandle,
+    private val repository: NewsRepository
+) : ViewModel() {
     private val newsList = MutableLiveData<ArrayList<NewsModel>>()
     private val _adapter = MutableLiveData<NewsAdapter>()
     private var lastNetStatus = false
@@ -47,7 +50,7 @@ class NewsViewModel(private val repository: NewsRepository) : ViewModel() {
         }
     }
 
-    private fun getNextNewsChunk(query:String="Yogi") {
+    private fun getNextNewsChunk(query: String = "Yogi") {
         if (isConnected.value == true) {
             viewModelScope.launch {
                 controller.apply {
@@ -57,7 +60,7 @@ class NewsViewModel(private val repository: NewsRepository) : ViewModel() {
                 repository.getNextNewsChunk(query).let { list ->
                     controller.progress.value = View.GONE
                     if (list != null) {
-                        Log.d(TAG,"List items=${list.size}")
+                        Log.d(TAG, "List items=${list.size}")
                         newsList.value!!.clear()
                         newsList.value!!.addAll(list)
                         _adapter.value?.notifyDataSetChanged()
@@ -65,6 +68,7 @@ class NewsViewModel(private val repository: NewsRepository) : ViewModel() {
                             msg.value = "No More Data"
                             content.value = View.VISIBLE
                         }
+                        pendingRequest = false
                     } else {
                         controller.apply {
                             msg.value = "Something Went Wrong"
@@ -75,7 +79,8 @@ class NewsViewModel(private val repository: NewsRepository) : ViewModel() {
             }
         }
     }
-    fun search(query:String){
+
+    fun search(query: String) {
         getNextNewsChunk(query)
     }
 
